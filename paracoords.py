@@ -18,6 +18,6 @@ def create_paracoords(data):
                         dict(label = 'citric acid', values = data['citric acid']),
                         dict(label = 'volatile acidity', values = data['volatile acidity']),
                         dict(label = 'fixed acidity', values = data['fixed acidity'])])))
-    fig.update_layout(template='presentation')
+    fig.update_layout(template='simple_white')
 
     return fig
