@@ -90,6 +90,6 @@ scat_plot = at.Chart(data2d_bins).transform_filter(
 # Combine all plots
 
 st.altair_chart(at.hconcat((cor_plot + text).properties(width=325, height=325, title = 'Correlation of Chemical Properties'),
-scat_plot.properties(width=325, height=325)).resolve_scale(color='independent'), container_width = True)
+scat_plot.properties(width=325, height=325)).resolve_scale(color='independent'))
 
 
