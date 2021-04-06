@@ -59,8 +59,7 @@ var_sel_cor = at.selection_single(fields=['variable', 'variable2'], clear=False,
 # Define correlation heatmap
 base = at.Chart(corr_data).encode(
     x='variable2:O',
-    y='variable:O',
-    color=at.color(corr_data, at.Scale(scheme='lightgreyteal'))
+    y='variable:O'
 )
 text = base.mark_text().encode(
     text='correlation_label',
