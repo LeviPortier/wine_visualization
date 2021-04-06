@@ -82,7 +82,7 @@ scat_plot = at.Chart(data2d_bins).transform_filter(
 )
 
 
-"Explore the correlation between the chemical properties of wine. By clicking on a correlation in the left plot, the right plot will show the correlation between the two variables. For instance clicking on the correlation between alcohol and quality in the left plot, will show you the correlation in the right plot and for which values it is strongest."
+"Explore the correlation between the chemical properties of wine. By clicking on a correlation in the left plot, the right plot will show the correlation between the two variables. The right plot works similar to a scatter plot, except here it shows in which range the most points are cluttered together.For instance clicking on the correlation between alcohol and quality in the left plot, will show you the correlation in the right plot and for which values the most observations are."
 
 # Combine all plots
 st.markdown("### Correlation of Chemical Properties")
