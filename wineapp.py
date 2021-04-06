@@ -78,7 +78,7 @@ scat_plot = at.Chart(data2d_bins).transform_filter(
 ).mark_circle().encode(
     at.X('value2:N', sort=at.EncodingSortField(field='raw_left_value2')), 
     at.Y('value:N', sort=at.EncodingSortField(field='raw_left_value', order='descending')),
-    size='correlation:Q
+    size='correlation:Q'
 )
 
 
