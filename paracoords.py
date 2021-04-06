@@ -5,7 +5,7 @@ def create_paracoords(data):
     fig = go.Figure(data=
                 go.Parcoords(
                     line = dict(color = data['quality']),dimensions = list([
-                        dict(constraintrange = [7.5,9]
+                        dict(constraintrange = [7.5,9],
                              label = 'quality', values = data['quality']),
                         dict(label = 'alcohol', values = data['alcohol']),
                         dict(label = 'sulphates', values = data['sulphates']),
@@ -18,6 +18,6 @@ def create_paracoords(data):
                         dict(label = 'citric acid', values = data['citric acid']),
                         dict(label = 'volatile acidity', values = data['volatile acidity']),
                         dict(label = 'fixed acidity', values = data['fixed acidity'])])))
-    fig.update_layout(autosize=False,width=600,height=600, template='presentation')
+    fig.update_layout(template='presentation')
 
     return fig

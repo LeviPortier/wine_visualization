@@ -18,7 +18,6 @@ st.write("This interactive webapp allows you to explore the quality and contents
 white = pd.read_csv('winequality-white.csv', sep=';')
 red = pd.read_csv('winequality-red.csv', sep=';')
 
-
 #create 2d correlation
 value_columns_white = copy(white)
 white2d_bins = pd.concat([compute_2d_histogram(var1, var2, white) for var1 in value_columns_white for var2 in value_columns_white])
@@ -40,11 +39,9 @@ if option == 'White':
 
 #function to create first plot
 fig = create_paracoords(data)
-"The dataset contains physicochemical attributes of each wine and a rating (scale 1-10) by an expert. The plot below shows all these attributes together. Play around with the pink slider in the first column to see how quality is affected by different combinations of psychochemical substances"
-
-st.markdown("### Parallel Coordinates Plot")
+"The dataset contains physicochemical attributes of each wine and a rating (scale 1-10) by an expert. The plot below shows all these attributes together. Play around with the slider in the first column to see how quality is affected by different combinations of psychochemical substances"
+st.markdown("### Relation Between Quality and other Attributes")
 st.plotly_chart(fig, use_container_width=True)
-
 
 ###SECOND PLOT USING ALTAIR####
 #create correlation table
@@ -60,7 +57,7 @@ var_sel_cor = at.selection_single(fields=['variable', 'variable2'], clear=False,
 # Define correlation heatmap
 base = at.Chart(corr_data).encode(
     x='variable2:O',
-    y='variable:O'
+    y='variable:O'    
 )
 text = base.mark_text().encode(
     text='correlation_label',
@@ -86,11 +83,10 @@ scat_plot = at.Chart(data2d_bins).transform_filter(
 
 
 "Explore the correlation between the chemical properties of wine. By clicking on a correlation in the left plot, the right plot will show the correlation between the two variables. For instance clicking on the correlation between alcohol and quality in the left plot, will show you the correlation in the right plot and for which values it is strongest."
-" "
 
 # Combine all plots
 st.markdown("### Correlation of Chemical Properties")
-st.altair_chart(at.hconcat((cor_plot + text).properties(width=325, height=325),
-scat_plot.properties(width=325, height=325)).resolve_scale(color='independent'),use_container_width=True)
+st.altair_chart(at.hconcat((cor_plot + text).properties(width=350, height=350),
+scat_plot.properties(width=350, height=350)).resolve_scale(color='independent'),use_container_width=True)
 
-
+st.markdown("*created by Levi Portier*")
