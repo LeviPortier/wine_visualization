@@ -5,7 +5,7 @@ def create_paracoords(data):
     fig = go.Figure(data=
                 go.Parcoords(
                     line = dict(color = data['quality']),dimensions = list([
-                        dict(constraintrange = [8,9],
+                        dict(constraintrange = [7.5,9],
                              label = 'quality', values = data['quality']),
                         dict(label = 'alcohol', values = data['alcohol']),
                         dict(label = 'sulphates', values = data['sulphates']),
