@@ -40,8 +40,9 @@ if option == 'White':
 
 #function to create first plot
 fig = create_paracoords(data)
-"The dataset contains physicochemical attributes of each wine and a rating (scale 1-10) by an expert. The plot below shows all these attributes together"
-"Play around with the pink slider in the first column to see how quality is affected by different combinations of psychochemical substances"
+"The dataset contains physicochemical attributes of each wine and a rating (scale 1-10) by an expert. The plot below shows all these attributes together. Play around with the pink slider in the first column to see how quality is affected by different combinations of psychochemical substances"
+
+st.markdown("### Parallel Coordinates Plot")
 st.plotly_chart(fig, use_container_width=True)
 
 
@@ -88,8 +89,8 @@ scat_plot = at.Chart(data2d_bins).transform_filter(
 " "
 
 # Combine all plots
-
-st.altair_chart(at.hconcat((cor_plot + text).properties(width=325, height=325, title = 'Correlation of Chemical Properties'),
+st.markdown("### Correlation of Chemical Properties")
+st.altair_chart(at.hconcat((cor_plot + text).properties(width=325, height=325),
 scat_plot.properties(width=325, height=325)).resolve_scale(color='independent'),use_container_width=True)
 
 
