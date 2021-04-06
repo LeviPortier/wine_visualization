@@ -18,6 +18,6 @@ def create_paracoords(data):
                         dict(label = 'citric acid', values = data['citric acid']),
                         dict(label = 'volatile acidity', values = data['volatile acidity']),
                         dict(label = 'fixed acidity', values = data['fixed acidity'])])))
-    fig.update_layout(autosize=False,width=600,height=600)
+    fig.update_layout(autosize=False,width=600,height=600, title ='Parallel Coordinates Plot')
 
     return fig
