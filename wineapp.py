@@ -41,7 +41,7 @@ if option == 'White':
 #function to create first plot
 fig = create_paracoords(data)
 "The dataset contains physicochemical attributes of each wine and a rating (scale 1-10) by an expert. The plot below shows all these attributes together"
-"Play around with the slider in the first column to see how quality is affected by different combinations of psychochemical substances"
+"Play around with the pink slider in the first column to see how quality is affected by different combinations of psychochemical substances"
 st.plotly_chart(fig, use_container_width=True)
 
 
@@ -87,8 +87,8 @@ scat_plot = at.Chart(data2d_bins).transform_filter(
 "Explore the correlation between the chemical properties of wine. By clicking on a correlation in the left plot, the right plot will show the correlation between the two variables. For instance clicking on the correlation between alcohol and quality in the left plot, will show you the correlation in the right plot and for which values it is strongest."
 
 # Combine all plots
-@st.cache
+
 st.altair_chart(at.hconcat((cor_plot + text).properties(width=350, height=350, title = 'Correlation of Chemical Properties'),
- scat_plot.properties(width=350, height=350)).resolve_scale(color='independent'))
+scat_plot.properties(width=350, height=350)).resolve_scale(color='independent'))
 
 
