@@ -59,7 +59,8 @@ var_sel_cor = at.selection_single(fields=['variable', 'variable2'], clear=False,
 # Define correlation heatmap
 base = at.Chart(corr_data).encode(
     x='variable2:O',
-    y='variable:O'    
+    y='variable:O',
+    color=at.color(corr_data, at.Scale(scheme='lightgreyteal'))
 )
 text = base.mark_text().encode(
     text='correlation_label',
@@ -85,10 +86,11 @@ scat_plot = at.Chart(data2d_bins).transform_filter(
 
 
 "Explore the correlation between the chemical properties of wine. By clicking on a correlation in the left plot, the right plot will show the correlation between the two variables. For instance clicking on the correlation between alcohol and quality in the left plot, will show you the correlation in the right plot and for which values it is strongest."
+" "
 
 # Combine all plots
 
-st.altair_chart(at.hconcat((cor_plot + text).properties(width=350, height=350, title = 'Correlation of Chemical Properties'),
-scat_plot.properties(width=350, height=350)).resolve_scale(color='independent'))
+st.altair_chart(at.hconcat((cor_plot + text).properties(width=325, height=325, title = 'Correlation of Chemical Properties'),
+scat_plot.properties(width=325, height=325)).resolve_scale(color='independent'), container_width = True)
 
 
