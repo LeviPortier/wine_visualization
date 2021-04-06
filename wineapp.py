@@ -75,14 +75,14 @@ cor_plot = base.mark_rect().encode(
 # Define 2d binned histogram plot
 scat_plot = at.Chart(data2d_bins).transform_filter(
     var_sel_cor
-).mark_rect().encode(
+).mark_circle().encode(
     at.X('value2:N', sort=at.EncodingSortField(field='raw_left_value2')), 
     at.Y('value:N', sort=at.EncodingSortField(field='raw_left_value', order='descending')),
-    at.Color('correlation:Q', scale=at.Scale(scheme='blues'))
+    size='correlation:Q
 )
 
 
-"Explore the correlation between the chemical properties of wine. By clicking on a correlation in the left plot, the right plot will show the correlation between the two variables. The right plot works similar to a scatter plot, except here it shows in which range the most points are cluttered together.For instance clicking on the correlation between alcohol and quality in the left plot, will show you the correlation in the right plot and for which values the most observations are."
+"Explore the correlation between the chemical properties of wine. By clicking on a correlation in the left plot, the right plot will show the binned correlation between the two variables. The right plot works similar to a scatter plot, except here it shows in which range the correlation is strongest.For instance clicking on the correlation between alcohol and quality in the left plot, will show you the correlation in the right plot and for which values the correlation is stronger."
 
 # Combine all plots
 st.markdown("### Correlation of Chemical Properties")
