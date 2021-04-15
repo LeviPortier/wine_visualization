@@ -1,4 +1,5 @@
 # Wine visualization
+View at https://share.streamlit.io/leviportier/wine_visualization/main/wineapp.py
 This repo is an interactive visualization of the Vinho Verde wine quality dataset.
 Achieved from https://archive.ics.uci.edu/ml/datasets/wine%20quality
 run locally using 
